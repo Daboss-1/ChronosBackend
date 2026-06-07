@@ -84,7 +84,7 @@ Dashboard.INSTANCE.putBoolean("Intake", "HasNote", () -> m_intake.sensorTriggere
 Dashboard.INSTANCE.putString("Shooter", "State", () -> m_shooter.getCurrentStateName());
 
 // Route an active camera stream link directly to the video canvas layout matrix
-Dashboard.INSTANCE.putCameraStream("Vision", "DriverCam", "[http://10.](http://10.)TE.AM.11:1181/?action=stream");
+Dashboard.INSTANCE.putCameraStream("Vision", "DriverCam", "http://10.TE.AM.11:1181/?action=stream");
 Dashboard.INSTANCE.putLimelightStream("Vision", "limelight-front");
 ```
 
