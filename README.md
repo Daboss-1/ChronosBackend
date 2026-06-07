@@ -1,4 +1,4 @@
-# ChronosBackend ⏱️
+# ChronosBackend
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![FRC](https://img.shields.io/badge/FRC-WPILib_2026-red.svg)](https://wpimath.wpi.edu/)
