@@ -19,9 +19,16 @@ repositories {
     maven {
         url = "https://3015rangerrobotics.github.io/pathplannerlib/repo"
     }
+
+    // Tell Gradle where to find JitPack files (if needed)
+    maven { 
+        url = 'https://jitpack.io' 
+    }
 }
 
 dependencies {
+    implementation 'com.github.Daboss-1:ChronosBackend:Tag'
+    
     // Upgraded to the most recent 2026 release!
     def wpilibVersion = "2026.2.1" 
     def pathplannerVersion = "2026.1.1"
