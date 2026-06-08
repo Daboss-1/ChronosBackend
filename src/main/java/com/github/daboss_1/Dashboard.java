@@ -1086,17 +1086,17 @@ public class Dashboard extends SubsystemBase
      * Register an alert that publishes to /NFRDashboard/alerts/&lt;name&gt;/.
      *
      * @param name     Unique alert identifier (also shown as title)
-     * @param severity "info" | "warn" | "error" | "critical"
+     * @param severity Alert severity level, which determines the color and sorting of the alert in the dashboard
      * @param message  Static description shown in the dashboard toast
      * @param active   Supplier returning true while the alert is active
      */
-    public void putAlert(String name, String severity, String message, BooleanSupplier active)
+    public void putAlert(String name, DashboardAlertSeverity severity, String message, BooleanSupplier active)
     {
         if (alertActiveSuppliers.containsKey(name))
             return;
         alertActiveSuppliers.put(name, active);
         var t = instance.getTable(outputPath).getSubTable("alerts").getSubTable(name);
-        t.getEntry("severity").setString(severity);
+        t.getEntry("severity").setString(severity.name().toLowerCase());
         t.getEntry("message").setString(message);
         t.getEntry("active").setBoolean(active.getAsBoolean());
     }
@@ -1128,5 +1128,9 @@ public class Dashboard extends SubsystemBase
     public void setAdvantageScopeReady(boolean ready)
     {
         instance.getTable(outputPath).getSubTable("advantagescope").getEntry("ready").setBoolean(ready);
+    }
+
+    public enum DashboardAlertSeverity {
+        INFO, WARN, ERROR, CRITICAL
     }
 }
